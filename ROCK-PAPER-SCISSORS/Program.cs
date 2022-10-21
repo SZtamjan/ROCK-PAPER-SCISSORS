@@ -24,8 +24,8 @@ namespace MatiApps
 
                 //AI move
                 Random random = new Random();
-                random.Next(1, 4);
-                pc = Convert.ToString(random);
+                int ai = random.Next(1, 4);
+                pc = Convert.ToString(ai);
 
                 switch (pc)
                 {
@@ -47,33 +47,25 @@ namespace MatiApps
                 Console.WriteLine("Computer " + pc);
 
                 //Win condition
-                if (usr == pc)
+                switch (usr)
                 {
-                    Console.WriteLine("It's a draw!");
-                }
-                if (usr == "ROCK" && pc == "SCISSORS")
-                {
-                    Console.WriteLine("You win!");
-                }
-                if (usr == "ROCK" && pc == "PAPER")
-                {
-                    Console.WriteLine("You lose!");
-                }
-                if (usr == "SCISSORS" && pc == "PAPER")
-                {
-                    Console.WriteLine("You win!");
-                }
-                if (usr == "SCISSORS" && pc == "ROCK")
-                {
-                    Console.WriteLine("You lose!");
-                }
-                if (usr == "PAPER" && pc == "SCISSORS")
-                {
-                    Console.WriteLine("You lose!");
-                }
-                if (usr == "PAPER" && pc == "ROCK")
-                {
-                    Console.WriteLine("You win!");
+                    case "ROCK":
+                        if (pc == "PAPER") Console.WriteLine("You Lose!");
+                        if (pc == "SCISSORS") Console.WriteLine("You Win!");
+                        if (pc == "ROCK") Console.WriteLine("It's a draw!");
+                        break;
+
+                    case "SCISSORS":
+                        if (pc == "PAPER") Console.WriteLine("You Win!");
+                        if (pc == "SCISSORS") Console.WriteLine("It's a draw!");
+                        if (pc == "ROCK") Console.WriteLine("You Lose!");
+                        break;
+
+                    case "PAPER":
+                        if (pc == "PAPER") Console.WriteLine("It's a draw!");
+                        if (pc == "SCISSORS") Console.WriteLine("You Lose!");
+                        if (pc == "ROCK") Console.WriteLine("You Win!");
+                        break;
                 }
 
                 //Asks if want to play again
